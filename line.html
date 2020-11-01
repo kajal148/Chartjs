@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Line Chart</title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <canvas id="myChart">
+            
+        </canvas>
+    </div>
+</body>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels:  ['Boston','Worcester','Springfield','Lowell','Cambridge','New Bedford'],
+            datasets: [{
+                label: 'Population',
+                data:  [61257,181045,153060,105162,95072,89657],
+                backgroundColor: 'green',
+                //borderColor: 'blue',
+                order: 1
+            },{
+                label: 'Line Dataset',
+                data: [50000, 60000, 30000, 40000,67000,79000],
+                backgroundColor: 'blue',
+                //borderColor: 'green'
+            // Changes this dataset to become a line
+                type: 'line',
+                order:2
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+            title:{
+                display:true,
+                text:"Largest Cities",
+                fontSize:20
+            },
+            tooltips:{
+                enabled:true
+            },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display:false
+                    },
+                    stacked: true,
+                    
+                    
+                    categoryPercentage: 0.55,
+                    barPercentage: 1.0,
+                }],
+                yAxes: [{
+                    
+                    gridLines: {
+                        display:false
+                    },
+                    stacked: true 
+                }]
+            }
+        }
+    });
+</script>
+</html>
